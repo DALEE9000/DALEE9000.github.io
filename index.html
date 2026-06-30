@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects · The Alphabet Agency</title>
+<meta name="description" content="Data projects, dashboards, and experiments by The Alphabet Agency." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080f; --panel:rgba(17,26,46,.55); --line:rgba(90,140,200,.18); --line2:rgba(90,140,200,.35);
+  --txt:#e8f1ff; --muted:#8aa0c6; --dim:#5a7099; --cyan:#22d3ee; --aligned:#2ee6a6;
+  --glow:0 0 24px rgba(34,211,238,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(34,211,238,.10), transparent 60%),
+    radial-gradient(900px 600px at -5% 110%, rgba(46,230,166,.08), transparent 55%),
+    var(--bg);
+  color:var(--txt); font-family:"Space Grotesk",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased; min-height:100vh;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.5; z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px; mask-image:radial-gradient(circle at 50% 20%,#000,transparent 80%);
+}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 26px}
+
+/* header */
+header{padding:64px 0 30px}
+.brand{display:flex;align-items:center;gap:15px}
+.mark{width:44px;height:44px;border-radius:12px;position:relative;flex:none;
+  background:linear-gradient(135deg,var(--cyan),var(--aligned));box-shadow:var(--glow)}
+.mark::after{content:"";position:absolute;inset:8px;border-radius:7px;border:2px solid rgba(5,8,15,.85);
+  background:repeating-linear-gradient(180deg,transparent 0 4px,rgba(5,8,15,.5) 4px 6px)}
+h1{font-size:26px;letter-spacing:.18em;margin:0;font-weight:700}
+.tag{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--cyan);
+  letter-spacing:.16em;margin-top:4px;text-transform:uppercase}
+.intro{margin:30px 0 8px;max-width:680px;font-size:17px;line-height:1.6;color:var(--muted)}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.links a{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.04em;
+  color:var(--txt);text-decoration:none;border:1px solid var(--line2);border-radius:9px;
+  padding:9px 14px;transition:.18s;background:var(--panel);backdrop-filter:blur(10px)}
+.links a:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--glow)}
+
+.sec-h{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;color:var(--cyan);
+  text-transform:uppercase;margin:54px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:baseline}
+.sec-h .count{color:var(--dim)}
+
+/* project grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;padding-bottom:20px}
+.card{display:flex;flex-direction:column;background:var(--panel);backdrop-filter:blur(12px);
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;
+  transition:.22s;position:relative}
+.card:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.card .thumb{height:200px;width:100%;background:#0a1120 center/cover no-repeat;position:relative;
+  flex:none;border-bottom:1px solid var(--line)}
+.card .thumb.placeholder{display:grid;place-content:center;
+  background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(46,230,166,.05))}
+.card .thumb.placeholder span{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;
+  color:var(--dim);text-transform:uppercase}
+.card .badge{position:absolute;top:12px;left:12px;font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:20px;
+  background:rgba(5,8,15,.7);border:1px solid var(--line2);backdrop-filter:blur(6px)}
+.badge.live{color:var(--aligned);border-color:rgba(46,230,166,.5)}
+.badge.soon{color:var(--dim)}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.body h3{margin:0 0 7px;font-size:19px;font-weight:600}
+.body p{margin:0 0 16px;font-size:14px;line-height:1.55;color:var(--muted);flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tags span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.04em;
+  color:var(--cyan);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);
+  padding:3px 8px;border-radius:6px}
+.cta{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:12px;
+  letter-spacing:.06em;color:var(--cyan);font-weight:500}
+.card.soon{pointer-events:none;opacity:.62}
+.card.soon .cta{color:var(--dim)}
+.actions{display:flex;gap:14px;align-items:center;position:relative;z-index:2}
+.actions .src{color:var(--dim);font-size:12px;font-family:"JetBrains Mono",monospace;
+  text-decoration:none;border-bottom:1px solid transparent}
+.actions .src:hover{color:var(--muted);border-color:var(--muted)}
+.card .overlay{position:absolute;inset:0;z-index:1}   /* stretched link over whole card */
+
+footer{margin:50px 0 40px;padding-top:22px;border-top:1px solid var(--line);
+  font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--dim);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="mark"></div>
+      <div>
+        <h1>THE ALPHABET AGENCY</h1>
+        <div class="tag">Data Projects &amp; Experiments</div>
+      </div>
+    </div>
+    <p class="intro">A working portfolio of interactive data tools, dashboards, and analyses —
+      built to make public data legible. New projects land here as they ship.</p>
+    <div class="links">
+      <a href="https://thealphabetagency.com" target="_blank" rel="noopener">← Back to Substack</a>
+      <a href="https://github.com/DALEE9000" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <div class="sec-h"><span>Projects</span><span class="count" id="count"></span></div>
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <span>© <span id="yr"></span> The Alphabet Agency</span>
+    <span><a href="https://thealphabetagency.com" target="_blank" rel="noopener">thealphabetagency.com</a></span>
+  </footer>
+</div>
+
+<script>
+/* ===== Add future projects by appending to this list ===== */
+const PROJECTS = [
+  {
+    title: "TIDELINE — NYC Flood-Resilience Tracker",
+    status: "live",
+    blurb: "An interactive dashboard connecting where New York floods to where the city spends its " +
+           "flood-resilience capital dollars — down to the community-district level — plus an " +
+           "animated replay of the May 20, 2026 flash flood with live subway & bus service impacts.",
+    tags: ["Leaflet", "Chart.js", "NYC Open Data", "FloodNet", "MTA GTFS"],
+    thumb: "assets/nyc-flood.png",
+    url: "https://dalee9000.github.io/nyc_state_capacity_hackathon/",
+    source: "https://github.com/DALEE9000/nyc_state_capacity_hackathon",
+  },
+  // {
+  //   title: "Next project",
+  //   status: "soon",                 // "live" | "soon"
+  //   blurb: "One-line description.",
+  //   tags: ["Tag", "Tag"],
+  //   thumb: "",                      // leave "" for a placeholder tile
+  //   url: "", source: "",
+  // },
+];
+
+const grid = document.getElementById("grid");
+grid.innerHTML = PROJECTS.map(p => {
+  const live = p.status === "live";
+  const badge = `<span class="badge ${live?'live':'soon'}">${live?'● Live':'Coming soon'}</span>`;
+  const thumb = p.thumb
+    ? `<div class="thumb" style="background-image:url('${p.thumb}')">${badge}</div>`
+    : `<div class="thumb placeholder">${badge}<span>preview soon</span></div>`;
+  // Stretched-link overlay (one anchor) + a separate source anchor as siblings — never nested.
+  const overlay = live ? `<a class="overlay" href="${p.url}" target="_blank" rel="noopener" aria-label="${p.title}"></a>` : "";
+  const src = p.source ? `<a class="src" href="${p.source}" target="_blank" rel="noopener">source ↗</a>` : "";
+  return `
+    <div class="card${live?'':' soon'}">
+      ${thumb}
+      <div class="body">
+        <h3>${p.title}</h3>
+        <p>${p.blurb}</p>
+        <div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join("")}</div>
+        <div class="actions">
+          <span class="cta">${live ? "View project →" : "In progress"}</span>
+          ${src}
+        </div>
+      </div>
+      ${overlay}
+    </div>`;
+}).join("");
+
+document.getElementById("count").textContent = PROJECTS.length + (PROJECTS.length===1?" project":" projects");
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
