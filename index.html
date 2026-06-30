@@ -33,13 +33,15 @@ body::before{
 .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 26px}
 
 /* header */
-header{padding:56px 0 30px}
-.brand-banner{height:150px;width:auto;max-width:100%;display:block;border-radius:14px;
+header{padding:56px 0 30px;text-align:center}
+.brand-banner{height:150px;width:auto;max-width:100%;display:block;margin:0 auto;border-radius:14px;
   border:1px solid var(--line2);box-shadow:0 14px 50px rgba(0,0,0,.5)}
+h1{font-family:"Instrument Serif",Georgia,serif;font-size:40px;letter-spacing:.005em;
+  margin:18px 0 0;font-weight:400;line-height:1}
 .tag{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:20px;color:var(--cyan);
-  letter-spacing:.01em;margin-top:14px}
-.intro{margin:30px 0 8px;max-width:680px;font-size:17px;line-height:1.6;color:var(--muted)}
-.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  letter-spacing:.01em;margin-top:6px}
+.intro{margin:30px auto 8px;max-width:680px;font-size:17px;line-height:1.6;color:var(--muted)}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
 .links a{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.04em;
   color:var(--txt);text-decoration:none;border:1px solid var(--line2);border-radius:9px;
   padding:9px 14px;transition:.18s;background:var(--panel);backdrop-filter:blur(10px)}
@@ -96,6 +98,7 @@ footer a:hover{color:var(--cyan)}
 <div class="wrap">
   <header>
     <img class="brand-banner" src="assets/banner.png" alt="Alphabet Agency" />
+    <h1>Alphabet Agency</h1>
     <div class="tag">Data Projects &amp; Experiments</div>
     <p class="intro">A working portfolio of interactive data tools, dashboards, and analyses —
       built to make public data legible. New projects land here as they ship.</p>
