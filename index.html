@@ -33,16 +33,11 @@ body::before{
 .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 26px}
 
 /* header */
-header{padding:64px 0 30px}
-.brand{display:flex;align-items:center;gap:15px}
-.mark{width:44px;height:44px;border-radius:12px;position:relative;flex:none;
-  background:linear-gradient(135deg,var(--cyan),var(--aligned));box-shadow:var(--glow)}
-.mark::after{content:"";position:absolute;inset:8px;border-radius:7px;border:2px solid rgba(5,8,15,.85);
-  background:repeating-linear-gradient(180deg,transparent 0 4px,rgba(5,8,15,.5) 4px 6px)}
-h1{font-family:"Instrument Serif",Georgia,serif;font-size:42px;letter-spacing:.005em;
-  margin:0;font-weight:400;line-height:1}
+header{padding:56px 0 30px}
+.brand-banner{height:150px;width:auto;max-width:100%;display:block;border-radius:14px;
+  border:1px solid var(--line2);box-shadow:0 14px 50px rgba(0,0,0,.5)}
 .tag{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:20px;color:var(--cyan);
-  letter-spacing:.01em;margin-top:6px}
+  letter-spacing:.01em;margin-top:14px}
 .intro{margin:30px 0 8px;max-width:680px;font-size:17px;line-height:1.6;color:var(--muted)}
 .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .links a{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.04em;
@@ -100,13 +95,8 @@ footer a:hover{color:var(--cyan)}
 <body>
 <div class="wrap">
   <header>
-    <div class="brand">
-      <div class="mark"></div>
-      <div>
-        <h1>Alphabet Agency</h1>
-        <div class="tag">Data Projects &amp; Experiments</div>
-      </div>
-    </div>
+    <img class="brand-banner" src="assets/banner.png" alt="Alphabet Agency" />
+    <div class="tag">Data Projects &amp; Experiments</div>
     <p class="intro">A working portfolio of interactive data tools, dashboards, and analyses —
       built to make public data legible. New projects land here as they ship.</p>
     <div class="links">
@@ -157,7 +147,7 @@ grid.innerHTML = PROJECTS.map(p => {
     ? `<div class="thumb" style="background-image:url('${p.thumb}')">${badge}</div>`
     : `<div class="thumb placeholder">${badge}<span>preview soon</span></div>`;
   // Stretched-link overlay (one anchor) + a separate source anchor as siblings — never nested.
-  const overlay = live ? `<a class="overlay" href="${p.url}" target="_blank" rel="noopener" aria-label="${p.title}"></a>` : "";
+  const overlay = live ? `<a class="overlay" href="${p.url}" aria-label="${p.title}"></a>` : "";
   const src = p.source ? `<a class="src" href="${p.source}" target="_blank" rel="noopener">source ↗</a>` : "";
   return `
     <div class="card${live?'':' soon'}">
