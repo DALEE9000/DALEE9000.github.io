@@ -1,6 +1,7 @@
-# The Alphabet Agency — Projects
+# Alphabet Agency — Projects
 
-Portfolio landing page for data projects & experiments, live at
+Portfolio landing page for the data projects & experiments of
+[Alphabet Agency](https://thealphabetagency.com), live at
 **https://dalee9000.github.io/** (and intended for `projects.thealphabetagency.com`).
 
 This is a single static `index.html` — no build step. It links out to each project, which lives
