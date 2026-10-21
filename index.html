@@ -118,8 +118,18 @@ footer a:hover{color:var(--cyan)}
 </div>
 
 <script>
-/* ===== Add future projects by appending to this list ===== */
-const PROJECTS = [
+/* ===== Add future projects at the TOP of this list (newest first) ===== */
+const PROJECTS = [   // newest first
+  {
+    title: "9/11 Document Archive — Navigator",
+    status: "live",
+    blurb: "A box-and-folder navigator, building map, and school air-testing timeline for the 64,000 " +
+           "records NYC's Law Department released on the municipal response to September 11.",
+    tags: ["Leaflet", "NYC Law Dept", "NYC GeoSearch", "OCR"],
+    thumb: "assets/nyc-911.png",
+    url: "https://projects.thealphabetagency.com/nyc-911-archive/",
+    source: "https://github.com/DALEE9000/nyc-911-archive",
+  },
   {
     title: "The Temperature Is Too Damn High — Heat's Fiscal Shadow",
     status: "live",
@@ -140,16 +150,6 @@ const PROJECTS = [
     thumb: "assets/nyc-flood.png",
     url: "https://projects.thealphabetagency.com/nyc_state_capacity_hackathon/",
     source: "https://github.com/DALEE9000/nyc_state_capacity_hackathon",
-  },
-  {
-    title: "9/11 Document Archive — Navigator",
-    status: "live",
-    blurb: "A box-and-folder navigator, building map, and school air-testing timeline for the 64,000 " +
-           "records NYC's Law Department released on the municipal response to September 11.",
-    tags: ["Leaflet", "NYC Law Dept", "NYC GeoSearch", "OCR"],
-    thumb: "assets/nyc-911.png",
-    url: "https://projects.thealphabetagency.com/nyc-911-archive/",
-    source: "https://github.com/DALEE9000/nyc-911-archive",
   },
   // {
   //   title: "Next project",

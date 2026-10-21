@@ -8,7 +8,7 @@ This is a single static `index.html` — no build step. It links out to each pro
 in its own repo.
 
 ## Add a project
-Edit the `PROJECTS` array near the bottom of `index.html`:
+Add to the TOP of the `PROJECTS` array near the bottom of `index.html` (newest first):
 
 ```js
 {
